@@ -25,6 +25,11 @@
 <script setup lang="ts">
 import { PostDetail } from "@/types";
 
+useSeoMeta({
+  title: "Posts screen",
+  description: "This is the Posts screen",
+});
+
 const {
   data: posts,
   pending,
