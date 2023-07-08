@@ -21,4 +21,9 @@ const {
 } = await useFetch<PostDetail>(
   `https://jsonplaceholder.typicode.com/posts/${postId}`
 );
+
+useSeoMeta({
+  title: post.value?.title || "Post detail screen",
+  description: post.value?.body || "This is the Post detail screen",
+});
 </script>

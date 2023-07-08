@@ -29,6 +29,11 @@
 <script setup lang="ts">
 import { UserInfo } from "types";
 
+useSeoMeta({
+  title: "Users screen",
+  description: "This is the Users screen",
+});
+
 const {
   data: users,
   pending,

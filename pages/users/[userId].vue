@@ -22,4 +22,9 @@ const {
 } = await useFetch<UserInfo>(
   `https://jsonplaceholder.typicode.com/users/${userId}`
 );
+
+useSeoMeta({
+  title: user.value?.name || "User detail screen",
+  description: user.value?.name || "This is the User detail screen",
+});
 </script>
