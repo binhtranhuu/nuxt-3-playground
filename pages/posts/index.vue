@@ -1,6 +1,5 @@
 <template>
-  <div class="container mx-auto p-6">
-    <div class="grid grid-cols-12 gap-3">
+  <div class="grid grid-cols-12 gap-3">
       <div v-if="pending">Loading...</div>
       <div v-if="error">Oop! Error...</div>
       <div
@@ -19,7 +18,6 @@
         <p class="text-base line-clamp-3">{{ post.body }}</p>
       </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
