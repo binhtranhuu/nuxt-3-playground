@@ -77,5 +77,6 @@
 <script setup lang="ts">
 definePageMeta({
   layout: "auth",
+  middleware: "redirect-me",
 });
 </script>
