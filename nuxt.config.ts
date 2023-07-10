@@ -18,4 +18,33 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  modules: ["@nuxtjs/i18n"],
+  i18n: {
+    /* module options */
+    lazy: true,
+    langDir: "locales",
+    strategy: "prefix_except_default",
+    locales: [
+      {
+        code: "en-US",
+        iso: "en-US",
+        name: "English",
+        file: "en-US.json",
+      },
+      {
+        code: "es-ES",
+        iso: "es-ES",
+        name: "Español",
+        file: "es-ES.json",
+      },
+      {
+        code: "vi-Vn",
+        iso: "vi-Vn",
+        name: "Việt Nam",
+        file: "vi-Vn.json",
+      },
+    ],
+    defaultLocale: "vi-Vn",
+    vueI18n: "./i18n.config.ts",
+  },
 });
