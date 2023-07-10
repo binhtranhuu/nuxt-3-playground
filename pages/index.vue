@@ -17,8 +17,24 @@
   <div class="text-center">
     <p class="text-base font-medium">{{ $t("name") }}</p>
   </div>
+
+  <div>
+    filtersList: {{ filtersList }}
+    <div>
+      <input v-model="inputVal" />
+      <button @click="addValueToFilterList(inputVal)">+</button>
+    </div>
+  </div>
 </template>
 
 <script setup>
+import { useFiltersStore } from "@/store";
+import { storeToRefs } from "pinia";
+
 const localePath = useLocalePath();
+
+const inputVal = ref("");
+const filtersStore = useFiltersStore();
+const { addValueToFilterList } = filtersStore;
+const { filtersList } = storeToRefs(filtersStore);
 </script>
