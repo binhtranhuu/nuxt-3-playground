@@ -13,6 +13,8 @@
   "rules": {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "vue/no-multiple-template-root": "off"
+    "vue/no-multiple-template-root": "off",
+    "semi": ["error", "always"],
+    "no-unused-vars": ["error", { "vars": "all" }]
   }
 }
