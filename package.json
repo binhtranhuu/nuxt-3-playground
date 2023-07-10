@@ -6,18 +6,61 @@
     "dev": "nuxt dev -p 3006",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "check:type": "bash -c tsc --noEmit",
+    "check:format": "prettier --check .",
+    "check:style": "stylelint \"**/*.{css,scss,sass}\"",
+    "check:lint": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+    "fix:format": "prettier --write --list-different .",
+    "fix:style": "yarn check:style --fix",
+    "fix:lint": "yarn check:lint --fix",
+    "fix:all": "yarn fix:format && yarn fix:lint",
+    "prepare": "husky install"
   },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "yarn check:type"
+    ],
+    "*.{css,scss,sass}": [
+      "yarn check:style"
+    ],
+    "*.{ts,js,tsx,jsx}": [
+      "yarn check:format",
+      "yarn check:lint"
+    ]
+  },
+  "dependencies": {
     "@nuxtjs/i18n": "^8.0.0-beta.13",
     "@pinia/nuxt": "^0.4.11",
+    "nuxt": "^3.6.2",
+    "pinia": "^2.1.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@tailwindcss/forms": "^0.5.3",
     "@types/node": "^18",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
     "autoprefixer": "^10.4.14",
-    "nuxt": "^3.6.2",
-    "pinia": "^2.1.4",
+    "eslint": "^8.44.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0-alpha.2",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "postcss": "^8.4.25",
-    "tailwindcss": "^3.3.2"
+    "prettier": "^3.0.0",
+    "stylelint": "^15.10.1",
+    "stylelint-checkstyle-formatter": "^0.1.2",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-scss": "^5.0.1",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.1.6"
   }
 }

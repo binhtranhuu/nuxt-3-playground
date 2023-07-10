@@ -1,36 +1,15 @@
 <template>
   <div class="w-full min-h-screen bg-gray-50">
-    <div
-      class="container w-full min-h-screen mx-auto flex flex-col justify-between"
-    >
+    <div class="container w-full min-h-screen mx-auto flex flex-col justify-between">
       <header class="flex items-center justify-between py-4">
         <h1 class="text-lg font-bold">
-          <NuxtLink
-            :to="localePath('/')"
-            class="hover:text-blue-600 hover:underline"
-          >
-            Logo
-          </NuxtLink>
+          <NuxtLink :to="localePath('/')" class="hover:text-blue-600 hover:underline"> Logo </NuxtLink>
         </h1>
         <div class="space-x-2">
-          <NuxtLink
-            :to="localePath('/login')"
-            class="hover:text-blue-600 hover:underline"
-          >
-            Login
-          </NuxtLink>
-          <NuxtLink
-            :to="localePath('/register')"
-            class="hover:text-blue-600 hover:underline"
-          >
-            Register
-          </NuxtLink>
+          <NuxtLink :to="localePath('/login')" class="hover:text-blue-600 hover:underline"> Login </NuxtLink>
+          <NuxtLink :to="localePath('/register')" class="hover:text-blue-600 hover:underline"> Register </NuxtLink>
           <!-- i18n -->
-          <NuxtLink
-            v-for="locale in availableLocales"
-            :key="locale.code"
-            :to="switchLocalePath(locale.code)"
-          >
+          <NuxtLink v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">
             {{ locale.name }}
           </NuxtLink>
         </div>
@@ -51,6 +30,6 @@ const { locale, locales } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 
 const availableLocales = computed(() => {
-  return locales.value.filter((i) => i.code !== locale.value);
+  return locales.value.filter(i => i.code !== locale.value);
 });
 </script>

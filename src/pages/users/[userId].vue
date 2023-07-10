@@ -9,22 +9,16 @@
 </template>
 
 <script setup lang="ts">
-import { UserInfo } from "types";
+import { UserInfo } from 'types';
 
 const {
   params: { userId },
 } = useRoute();
 
-const {
-  data: user,
-  pending,
-  error,
-} = await useFetch<UserInfo>(
-  `https://jsonplaceholder.typicode.com/users/${userId}`
-);
+const { data: user, pending, error } = await useFetch<UserInfo>(`https://jsonplaceholder.typicode.com/users/${userId}`);
 
 useSeoMeta({
-  title: user.value?.name || "User detail screen",
-  description: user.value?.name || "This is the User detail screen",
+  title: user.value?.name || 'User detail screen',
+  description: user.value?.name || 'This is the User detail screen',
 });
 </script>
