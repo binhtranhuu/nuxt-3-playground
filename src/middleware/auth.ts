@@ -1,6 +1,7 @@
-import { useAuthStore } from "@/store";
-import { storeToRefs } from "pinia";
-import { UserInfo } from "types";
+import { storeToRefs } from 'pinia';
+
+import { useAuthStore } from '@/store';
+import { UserInfo } from '@/types';
 
 export default defineNuxtRouteMiddleware(async () => {
   const app = useNuxtApp();
@@ -9,9 +10,7 @@ export default defineNuxtRouteMiddleware(async () => {
   const { userInfo } = storeToRefs(authStore);
 
   if (!userInfo.value) {
-    const { data: user } = await useFetch<UserInfo>(
-      `https://jsonplaceholder.typicode.com/users/1`
-    );
+    const { data: user } = await useFetch<UserInfo>(`https://jsonplaceholder.typicode.com/users/1`);
 
     updateUserInfo(user as unknown as UserInfo);
   }

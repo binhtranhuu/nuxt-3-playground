@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { PostDetail } from "types";
+import { PostDetail } from 'types';
 
 const {
   params: { postId },
@@ -18,12 +18,10 @@ const {
   data: post,
   pending,
   error,
-} = await useFetch<PostDetail>(
-  `https://jsonplaceholder.typicode.com/posts/${postId}`
-);
+} = await useFetch<PostDetail>(`https://jsonplaceholder.typicode.com/posts/${postId}`);
 
 useSeoMeta({
-  title: post.value?.title || "Post detail screen",
-  description: post.value?.body || "This is the Post detail screen",
+  title: post.value?.title || 'Post detail screen',
+  description: post.value?.body || 'This is the Post detail screen',
 });
 </script>

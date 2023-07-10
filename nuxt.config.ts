@@ -1,15 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  srcDir: "src/",
+  srcDir: 'src/',
   devtools: { enabled: true },
-  css: ["@/assets/css/styles.css"],
+  css: ['@/assets/css/styles.css'],
   runtimeConfig: {
     runtimeConfig: {
       // Private config that is only available on the server
-      apiSecret: "123",
+      apiSecret: '123',
       // Config within public will be also exposed to the client
       public: {
-        apiBase: "/api",
+        apiBase: '/api',
       },
     },
   },
@@ -19,33 +19,33 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@nuxtjs/i18n", "@pinia/nuxt"],
+  modules: ['@nuxtjs/i18n', '@pinia/nuxt'],
   i18n: {
     /* module options */
     lazy: true,
-    langDir: "locales",
-    strategy: "prefix_except_default",
+    langDir: 'locales',
+    strategy: 'prefix_except_default',
     locales: [
       {
-        code: "en-US",
-        iso: "en-US",
-        name: "English",
-        file: "en-US.json",
+        code: 'en-US',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en-US.json',
       },
       {
-        code: "es-ES",
-        iso: "es-ES",
-        name: "Español",
-        file: "es-ES.json",
+        code: 'es-ES',
+        iso: 'es-ES',
+        name: 'Español',
+        file: 'es-ES.json',
       },
       {
-        code: "vi-Vn",
-        iso: "vi-Vn",
-        name: "Việt Nam",
-        file: "vi-Vn.json",
+        code: 'vi-Vn',
+        iso: 'vi-Vn',
+        name: 'Việt Nam',
+        file: 'vi-Vn.json',
       },
     ],
-    defaultLocale: "vi-Vn",
-    vueI18n: "./i18n.config.ts",
+    defaultLocale: 'vi-Vn',
+    vueI18n: './i18n.config.ts',
   },
 });
